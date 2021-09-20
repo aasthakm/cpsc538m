@@ -4,13 +4,6 @@ libflush is a library to launch cache attacks on x86 as well as ARMv8 architectu
 
 This library was developed in the [ARMageddon: Cache Attacks on Mobile Devices](https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/lipp) paper and used to build covert-channels that outperform state-of-the-art covert channels on Android by several orders of magnitude. It was utilized to implement [cache template attacks](https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-gruss.pdf) that monitor tap and swipe events as well as keystrokes, and even derive the words entered on the touchscreen.
 
-<!--
-Moreover, we used it to attack cryptographic primitives in Java and to monitor cache activity in the ARM TrustZone from the normal world. With the [Prefetch Side-Channel Attacks: Bypassing SMAP and Kernel ASLR]() paper we have extended the library to support prefetch attack techniques to obtain address information that can be used to defeat SMAP, SMEP and kernel ASLR.
-
-The [ARMageddon: Cache Attacks on Mobile Devices](https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/lipp) paper by Lipp, Gruss, Spreitzer, Maurice and Mangard will be published at the Usenix Security Symposium 2016. The
-[Prefetch Side-Channel Attacks: Bypassing SMAP and Kernel ASLR]() paper by Gruss, Fogh, Maurice, Lipp and Mangard will be published at ACM Conference on Computer and Communications Security 2016.
--->
-
 ## Table of content
 
 - [Installation](#installation)
@@ -41,24 +34,8 @@ make install
 
 In addition we provide a debug build that can be initiated by calling `make debug` as well as a simple test suite that can be run by calling `make test`. Code coverage of the test suite can be determined by running `make gcov`. Additional documentation can be build with the `make doc` target.
 
-<!--
-Additionally we provide an `Android.mk` and an `Application.mk` file that can be
-used to build the library with the [Android NDK](https://developer.android.com/ndk/index.html) toolset:
-
-```bash
-ndk-build NDK_APPLICATION_MK=`pwd`/Application.mk NDK_PROJECT_PATH=`pwd`
-```
--->
 
 ### Dependencies
-<!--
-libflush does not require any dependencies except for running the test suite.
-However, by default it uses the toolchains provided by the Android NDK if built
-for _armv7_ or _armv8_.
-
-* [Android NDK](https://developer.android.com/ndk/index.html) - Android Native
-    Development Kit (optional, for ARM builds)
--->
 
 * [check](https://libcheck.github.io/check/) - Unit Testing Framework for C (optional, for test cases)
 * [libfiu](https://blitiri.com.ar/p/libfiu/) - Fault injection in userspace (optional, for test cases)
@@ -97,17 +74,6 @@ the timing source.
     * _thread_counter_ - Dedicated thread counter
 * `WITH_PTHREAD`: Build with pthread support.
 * `HAVE_PAGEMAP_ACCESS`: Defines if access to _/proc/self/pagemap_ is granted.
-
-<!--
-By default the build system makes use of the toolchains provided by the [Android NDK](https://developer.android.com/ndk/index.html), thus its possible that the installation path of the NDK needs to be modified:
-
-* `ANDROID_NDK_PATH`: Path to the installation of the Android NDK.
-    * _/opt/android-ndk_ (default)
-* `ANDROID_PLATFORM`: Defines the used Android platform that is used.
-    * _android-21_ (default)
-
-If you prefer to use a different toolchain/compiler, feel free to change `CC` and other properties accordingly.
--->
 
 ## Advanced Configuration
 
@@ -194,9 +160,6 @@ uint64 time = libflush_reload_address(libflush_session, address);
 A more sophisticated example using libflush can be found in the [example](example) directory. It implements
 a calibration tool for the Flush+Reload, Prime+Probe, Evict+Reload, Flush+Flush and Prefetch attack. The example
 can be compiled by running `make example` and executed by running `./example/build/<arch>/release/bin/example`.
-<!--
-In addition the example can also be build with the `ndk-build` tool.
--->
 
 ## License
 

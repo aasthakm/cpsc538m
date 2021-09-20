@@ -2,12 +2,6 @@
 
 Cache Template Attacks is a platform-independent tool that utilizes [libflush](../libflush) to launch [cache template attacks](https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-gruss.pdf) on x86 as well as  ARMv8 architecture. The original source of these libraries and tools can be found [here](https://github.com/IAIK/armageddon), which were developed and utilized in the [Cache Template Attacks](https://www.usenix.org/system/files/conference/usenixsecurity15/sec15-paper-gruss.pdf) and [ARMageddon: Cache Attacks on Mobile Devices](https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/lipp) papers.
 
-<!--
-We used it to monitor tap and swipe events as well as keystrokes, and even derive the words entered on the touchscreen on mobile devices.
-
-The [ARMageddon: Cache Attacks on Mobile Devices](https://www.usenix.org/conference/usenixsecurity16/technical-sessions/presentation/lipp) paper by Lipp, Gruss, Spreitzer, Maurice and Mangard has been published at the Usenix Security Symposium 2016 and presented at [Black Hat Europe 2016](https://www.blackhat.com/eu-16/briefings/schedule/index.html#armageddon-how-your-smartphone-cpu-breaks-software-level-security-and-privacy-4887).
--->
-
 ## Table of content
 
 - [Installation](#installation)
@@ -37,14 +31,6 @@ Cache Template Attacks utilizes libflush and, thus, this is the only dependency.
 
 * [libflush](../libflush) (required)
 
-<!--
-However, by default it uses the toolchains provided by the Android NDK if built
-for _armv7_ or _armv8_.
-
-* [Android NDK](https://developer.android.com/ndk/index.html) - Android Native
-    Development Kit (optional, for ARM builds)
--->
-
 ## Build Configuration
 
 The build system makes use of several configuration files. The parameters can be adjusted by modifying the files accordingly or by passing them to make (`make ARCH=x86`). The most important properties are the following:
@@ -58,16 +44,6 @@ The build system makes use of several configuration files. The parameters can be
 
 If the library is build for the Raspberry Pi 4B+ board (ARMv8 architecture), the build system uses the [config-rpi.mk](config-rpi.mk) configuration file.
 
-<!--
-By default the build system makes use of the toolchains provided by the [Android NDK](https://developer.android.com/ndk/index.html), thus its possible that the installation path of the NDK needs to be modified:
-
-* `ANDROID_NDK_PATH`: Path to the installation of the Android NDK.
-    * _/opt/android-ndk_ (default)
-* `ANDROID_PLATFORM`: Defines the used Android platform that is used.
-    * _android-21_ (default)
-
-If you prefer to use a different toolchain/compiler, feel free to change `CC` and other properties accordingly.
--->
 
 ## Usage
 
